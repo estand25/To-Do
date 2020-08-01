@@ -3,8 +3,9 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var __DEV__ = process.env.NODE_ENV === 'development'
 
 module.exports = {
+    devtool: 'inline-source-map',
     entry: [
-        __DEV__ && 'src/index.js',
+        __DEV__ && './mocks/index.js',
         './index.js'
     ].filter(Boolean),
     output: {
@@ -19,6 +20,7 @@ module.exports = {
        ] 
     },
     devServer: {
+      contentBase: "./build",
       historyApiFallback: true,
     },
     mode: 'development',

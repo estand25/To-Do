@@ -1,11 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { DisplayAddItem, DisplayItemList } from '../components'
 
-class App extends React.Component {
-    render(){
-        return (
-            <div>template bitch</div>
-        )
-    }
+import { Provider } from 'react-redux'
+import { store, persistor } from '../store'
+import { PersistGate } from 'redux-persist/integration/react'
+
+const App = () => {
+    return (
+        <Provider store={store}>
+            <PersistGate loading={null} persistor={persistor}>
+                <DisplayAddItem />
+                <DisplayItemList />
+            </PersistGate>
+        </Provider>
+    )
 }
 
 export default App

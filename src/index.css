@@ -1,0 +1,28 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+}
+
+.label {
+    margin: 5px;
+}
+
+.space {
+    padding: 5px;
+}
+
+.listItemBorder {
+    padding: 5px;
+    border: 1px solid black;
+    margin: 10px;
+}

@@ -1,0 +1,7 @@
+export const actions = {
+    ITEM_ADD: 'ITEM_ADD',
+    ITEM_DELETE: 'ITEM_DELETE',
+    ITEM_UPDATE: 'ITEM_UPDATE',
+    ITEM_GET_SINGLE: 'ITEM_GET_SINGLE',
+    ITEM_GET_ALL: 'ITEM_GET_ALL'
+}
