@@ -2,7 +2,9 @@ import React from 'react'
 import { SwitchBetween } from '../components'
 
 const ListOrNot = ({items}) => {
-    if(items.itemList.length == 0){
+    var list = items.itemList.filter( x => x != null);
+
+    if(list.length == 0){
         return (
             <div className="listItemBorder">
                 Not items To-do
@@ -11,11 +13,11 @@ const ListOrNot = ({items}) => {
     }
     else 
     {
-        console.log('list', items.itemList)
+        console.log('list', list)
 
         return (
             <div>
-                {items.itemList
+                {list
                     .map(it => (
                         <SwitchBetween
                             key={it.id}

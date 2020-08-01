@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
             var b = {
                 ...state,
                 item: action.item,
-                itemList: state.itemList.filter(x => x.id != action.item.id)
+                itemList: state.itemList.filter(x => x.id != action.item.id && x != null)
             }
 
             console.log('ITEM_DELETE', b)
@@ -40,13 +40,13 @@ export default (state = initialState, action) => {
             return {
                 ...state,
                 item: action.item,
-                itemList: state.itemList.filter(x => x.id == action.id)
+                itemList: state.itemList.filter(x => x.id == action.id && x != null)
             }
         case actions.ITEM_GET_ALL:
             return {
                 ...state,
                 item: action.item,
-                itemList: state.itemList
+                itemList: state.itemList.filter(x => x != null)
             }
         default:
             return state
