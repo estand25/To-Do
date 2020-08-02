@@ -18,11 +18,12 @@ export default (state = initialState, action) => {
             console.log('ITEM_ADD', a);
             return a;
         case actions.ITEM_DELETE:
-            console.log('action', action.item)
+            var i = state.itemList.filter(x => x != null) 
+
             var b = {
                 ...state,
                 item: action.item,
-                itemList: state.itemList.filter(x => x.id != action.item.id && x != null)
+                itemList: i.filter(x => x.id != action.item.id)
             }
 
             console.log('ITEM_DELETE', b)

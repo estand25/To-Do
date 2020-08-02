@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { item } from '../action';
 import { ItemObj } from '../model';
-import { AddEditItem ,ReadOnlyItem } from '../components'
+import { AddEditItem ,ReadOnlyItem, ButtonGenerator } from '../components'
 
 const SwitchBetween = ({item_}) => {
     const dispatch = useDispatch()
@@ -35,24 +35,26 @@ const SwitchBetween = ({item_}) => {
         dispatch(item.setItemDelete(cItem()))
     }
 
+    const editBtn = [
+        {
+            className:'btn btn-outline-success',
+            onClick: () => onEdit(),
+            text: 'Edit'
+        },
+        {
+            className:'btn btn-outline-danger',
+            onClick:  () => onDeleClick(),
+            text: 'Remove'
+        }
+    ]
+
     const SwitchComp = () =>{
         if(isEdit){
             return (
                 <div className="listItemBorder">
-                    <div>
-                        <button 
-                            className="btn btn-success"
-                            onClick={onEdit}
-                        >
-                            Edit
-                        </button>
-                        <button
-                            className="btn btn-primary"
-                            onClick={onDeleClick}
-                        >
-                            Delete
-                        </button>
-                    </div>
+                    <ButtonGenerator
+                        list={editBtn}
+                    />
                     <AddEditItem
                         iName={iName}
                         setiName={setiName}
@@ -72,20 +74,9 @@ const SwitchBetween = ({item_}) => {
         else{
             return (
                 <div className="listItemBorder">
-                    <div>
-                        <button 
-                            className="btn btn-success"
-                            onClick={onEdit}
-                        >
-                            Edit
-                        </button>
-                        <button
-                            className="btn btn-primary"
-                            onClick={onDeleClick}
-                        >
-                            Delete
-                        </button>
-                    </div>
+                    <ButtonGenerator
+                        list={editBtn}
+                    />
                     <ReadOnlyItem 
                         item={item_}
                     />
@@ -94,6 +85,7 @@ const SwitchBetween = ({item_}) => {
         }
         
     }
+    
     return (
         <SwitchComp />
     )

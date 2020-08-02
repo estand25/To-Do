@@ -7,14 +7,12 @@ const ListOrNot = ({items}) => {
     if(list.length == 0){
         return (
             <div className="listItemBorder">
-                Not items To-do
+                No items to Display
             </div>
         )
     }
     else 
     {
-        console.log('list', list)
-
         return (
             <div>
                 {list

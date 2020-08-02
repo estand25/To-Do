@@ -23,7 +23,8 @@ const DisplayAddItem = () => {
     return (
         <div>
             <button
-                className="btn btn-success"
+                style={{margin: 10 }}
+                className="btn btn-outline-success"
                 onClick={onClick}
             >
                 Add To-do
